@@ -7,4 +7,4 @@ resources:
 images:
 - name: api-server-image
   newName: plox/modoosugang_server
-  newTag: 49
+  newTag: 50
