@@ -13,7 +13,7 @@ pipeline {
                 sh 'git config --global user.email insukim97@gmail.com'
                 sh "git add ."
                 sh "git commit -m '[UPDATE] modoosugang_server ${BUILD_NUMBER} image versioning'"
-                sshagent(credentials: ['5bf01c16-c17c-4ec8-a328-a94174ee9b38']) {
+                sshagent(credentials: ['d5ca56c2-1dd8-4ab6-b1f0-a5693ffa79b7']) {
                     sh "git remote set-url origin git@github.com:plooox/manifest_test.git"
                     sh "echo setURL"
                     sh "git push -u origin master"
