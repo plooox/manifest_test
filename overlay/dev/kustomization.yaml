@@ -3,7 +3,7 @@ kind: Kustomization
 patchesStrategicMerge:
 - back-test-deployment.yaml
 resources:
-- ../base
+- ../../base
 images:
 - name: api-server-image
   newName: plox/modoosugang_server
