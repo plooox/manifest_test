@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-server
+spec:
+  replicas: 2
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: api-server 
+  template:
+    metadata:
+      name: api-server-pod
+      labels:
+        app: api-server
+    spec:
+      containers:
+      - name: api-server
+        image: api-server-image
+        env:
+        - name: MYSQL_HOST
+          valueFrom:
+            secretKeyRef:
+              name: api-server-secret
+              key: MYSQL_HOST
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: api-server-secret
+              key: MYSQL_PASSWORD
+        - name: MYSQL_TABLE
+          valueFrom:
+            secretKeyRef:
+              name: api-server-secret
+              key: MYSQL_TABLE
+        - name: MYSQL_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: api-server-secret
+              key:  MYSQL_USERNAME
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

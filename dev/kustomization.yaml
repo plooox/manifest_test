@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+patchesStrategicMerge:
+- back-test-deployment.yaml
+resources:
+- ../base
+images:
+- name: api-server-image
+  newName: plox/modoosugang_server
+  newTag: "<new tag>"
