@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: api-server
 spec:
-  containers:
-  - name: api-server-image
+  template:
+    spec:
+      containers:
+      - name: api-server-image
 
